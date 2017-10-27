@@ -1,0 +1,1 @@
+0:0:0:0:0:0:0:1 - - [08/Oct/2017:00:13:51 -0300] "GET /Carros/WEB-INF/classes/br/com/estudo/domain/BaseDAO.java HTTP/1.1" 404 1047

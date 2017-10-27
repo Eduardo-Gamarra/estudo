@@ -1,0 +1,34 @@
+package br.com.estudo.domain;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+public class Response {
+	private String status,msg;
+	public Response() {};
+	public static Response Ok(String string) {
+		Response r = new Response();
+		r.setStatus("OK");
+		r.setMsg(string);
+		return r;
+	}
+	public static Response Erro(String string) {
+		Response r = new Response();
+		r.setStatus("ERRO!!!1!");
+		r.setMsg(string);
+		return r;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	
+}

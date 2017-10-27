@@ -1,0 +1,22 @@
+package br.com.estudo.rest;
+
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import br.com.estudo.domain.CarroService;
+import br.com.estudo.domain.ListaCarros;
+
+@Path("/carros")
+@Produces(MediaType.APPLICATION_JSON+";charset=urf8")
+@Consumes(MediaType.APPLICATION_JSON+";charset=urf8")
+public class CarrosResource {
+	private CarroService carroService = new CarroService();
+	@GET
+	public List<Carro> get(){
+		List<Carro> carros = carro
+	}
+}

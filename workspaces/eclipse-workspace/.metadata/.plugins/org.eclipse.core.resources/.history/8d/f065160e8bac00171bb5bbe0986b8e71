@@ -1,0 +1,5 @@
+package br.com.estudo.domain;
+
+public class CarroDAO extends BaseDAO{
+
+}

@@ -1,0 +1,118 @@
+package br.com.estudo.domain;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+public class CarroDAO extends BaseDAO{
+	public Carro getCarroById(Long id) throws SQLException{
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		try {
+			conn = getConnection();
+			stmt = conn.prepareStatement("SELECT* FROM carro WHERE id = ?");
+			stmt.setLong(1, id);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {
+				Carro c = createCarro(rs);
+				rs.close();
+				return c;
+			}
+		}finally {
+			if(stmt != null) {
+				stmt.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
+		return null;
+	}
+	public List<Carro> finBbyName(String name) throws SQLException{
+		List<Carro> carros = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		try {
+			conn = getConnection();
+			stmt = conn.prepareStatement("SELECT * FROM carro WHERE LOWER(NAME) LIKE ?");
+			stmt.setString(1, "%" + name.toLowerCase()+ "%");
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Carro c = createCarro(rs);
+				carros.add(c);
+			}
+			rs.close();
+		}finally {
+			if(stmt != null) {
+				stmt.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
+		return carros;
+	}
+	public List<Carro> findByTipo(String tipo) throws SQLException{
+		List(Carro) carros = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		try {
+			conn = getConnection();
+			stmt = conn.prepareStatement("SELECT * FROM carro WHERE tipo = ?");
+			stmt.setString(1, tipo);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Carro c = createCarro(rs);
+				carros.add(c);
+			}
+			rs.close();
+		}finally {
+			if(stmt != null) {
+				stmt.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
+		return carros;
+	}
+	public List<Carro> getCarros() throws SQLException{
+		List<Carro> findByTipo(String tipo) throws SQLException{
+		List(Carro) carros = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		try {
+			conn = getConnection();
+			stmt = conn.prepareStatement("SELECT * FROM carro");
+			stmt.setString(1, tipo);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Carro c = createCarro(rs);
+				carros.add(c);
+			}
+			rs.close();
+		}finally {
+			if(stmt != null) {
+				stmt.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		}
+		return carros;
+	}
+	
+
+	private Carro createCarro(rs)(ResultSet rs) {
+		Carro c = new Carro();
+		c.setId(rs.getLong("id"));
+		c.setNome(rs.getString("nome"));
+		c.setDesc(rs.get);
+		return null;
+	}
+}
