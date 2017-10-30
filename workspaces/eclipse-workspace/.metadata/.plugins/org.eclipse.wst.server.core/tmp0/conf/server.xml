@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\java\workspaces\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\java\workspaces\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\carros-livro" path="/carros-livro" reloadable="true" source="org.eclipse.jst.jee.server:carros-livro"/><Context docBase="C:\java\workspaces\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Carros" path="/Carros" reloadable="true" source="org.eclipse.jst.j2ee.server:Carros"/></Host>
+      <Context docBase="C:\java\workspaces\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\java\workspaces\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\trabalho" path="/trabalho" reloadable="true" source="org.eclipse.jst.j2ee.server:trabalho"/></Host>
     </Engine>
   </Service>
 </Server>

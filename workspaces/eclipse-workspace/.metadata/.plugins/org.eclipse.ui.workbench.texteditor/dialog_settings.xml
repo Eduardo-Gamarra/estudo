@@ -6,24 +6,37 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="br.com.estudo.rest.MyApplication" key="selection"/>
-		<item value="false" key="casesensitive"/>
+		<item value="pergunta" key="selection"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="br.com.estudo.rest.MyApplication"/>
-			<item value="class br.com.estudo.rest.MyApplication"/>
-			<item value="run"/>
+			<item value="pergunta"/>
+			<item value="pergun"/>
+			<item value="Pergunta"/>
+			<item value="correta"/>
+			<item value="request"/>
+			<item value="usuarioExiste"/>
+			<item value="response."/>
+			<item value="function(data) "/>
+			<item value="get"/>
+			<item value="seEncontrar"/>
+			<item value="url_checar_senha"/>
+			<item value="url_checar_user"/>
+			<item value="getUser"/>
+			<item value="rest/usuario/"/>
+			<item value=".erro"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Usuario"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="284" key="DIALOG_WIDTH"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="826" key="DIALOG_X_ORIGIN"/>
-		<item value="288" key="DIALOG_Y_ORIGIN"/>
+		<item value="1408" key="DIALOG_X_ORIGIN"/>
+		<item value="258" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
