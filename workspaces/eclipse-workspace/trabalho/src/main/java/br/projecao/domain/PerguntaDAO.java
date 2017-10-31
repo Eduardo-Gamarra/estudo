@@ -34,28 +34,8 @@ public class PerguntaDAO extends BaseDAO {
 			conn = getConnection();
 			stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
-
-			// posiciona no primero registro
-			rs.next();
-			while(!rs.isLast() ) {
-				// cria o objeto pergunta e a variavel de controle
-				Pergunta p = rsToPergunta(rs);
-				long controle = rs.getLong("p_id");
-				
-				
-				//enquanto o controle for igual, cria as opção
-				while(!rs.isLast()  && controle == rs.getLong("p_id")) {
-					Opcao o = new Opcao();
-					o.setId(rs.getLong("o_id"));
-					o.setText(rs.getString("o_text"));
-					o.setCorreta(rs.getBoolean("o_correta"));
-					
-					p.addOpcao(o);
-					// para a proxima linha do resultset
-					rs.next();
-				}
-				l.add(p);
-			}
+			
+			l = montaListaPerguntas(rs);
 			rs.close();
 		}finally {
 			if(stmt != null) {
@@ -67,7 +47,41 @@ public class PerguntaDAO extends BaseDAO {
 		}
 		return l;
 	}
+	
+	private List<Pergunta> montaListaPerguntas (ResultSet rs) throws SQLException {
+		List<Pergunta> l = new ArrayList<>();
+		Pergunta p = null;
+		
+		// cria variavel de controle
+		Long p_id = null;
 
+		
+		while(rs.next() ) {
+
+			// se p for null, e a primera passagem ou  
+			// se o p_id for dirente do registro
+			if (p == null || !(rs.getLong("p_id") == p_id)) {
+
+				//cria nova pergunta e ja adiona na lista
+				p = rsToPergunta(rs);
+				p_id = rs.getLong("p_id");
+				l.add(p);
+			}	
+
+			rsToOpcao(p, rs);
+			
+		}
+		return l;
+	}
+
+	private void rsToOpcao(Pergunta p, ResultSet rs) throws SQLException {
+		Opcao o = new Opcao();
+		o.setId(rs.getLong("o_id"));
+		o.setText(rs.getString("o_text"));
+		o.setCorreta(rs.getBoolean("o_correta"));
+		p.addOpcao(o);
+	}
+	
 	private Pergunta rsToPergunta(ResultSet rs) throws SQLException{
 		Pergunta u = new Pergunta();
 		u.setId(rs.getLong("p_id"));

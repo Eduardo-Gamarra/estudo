@@ -12,7 +12,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import javax.ws.rs.core.Response;
-//import br.projecao.domain.Response;
 import br.projecao.domain.Usuario;
 import br.projecao.domain.UsuarioService;
 
@@ -29,7 +28,10 @@ public class UsuarioResource {
 		Map<String, Object> o = new HashMap<>();
 		try {
 			String login = (String) map.get("login");
-			usuarioService.checaruser(login);
+			Boolean existe = usuarioService.checaruser(login);
+			if (!existe) {
+				o.put("erro", "Usuario não cadastrado");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			o.put("erro", e.getMessage());

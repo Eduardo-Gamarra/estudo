@@ -6,10 +6,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.Data;
 
-@XmlRootElement
+
 @Data	
 public class Opcao implements Serializable {
-	private static final long serialVerisionUID = 1L;
+	private static final long serialVersionUID = -8861636218458516279L;
 	private Long id;
 	private String text;
 	private Long idPergunta;

@@ -210,8 +210,13 @@ app.controller("ctrl", function($scope, $http, $timeout) {
 			return;
 		usuarioExiste(
 			$s.login
-			, function() {
-				$s.form = 'senha';
+			, function(data) {
+				if (data && data.erro) {
+					$s.erro = data.erro;
+				} else {
+					$s.form = 'senha';
+				}				
+				
 			}
 			, function(data) {
 				if (data && data.erro) {
